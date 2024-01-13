@@ -1,62 +1,66 @@
-calculate_savings_and_discounted_price();
-calculate_savings_on_fixed_price_off();
-discount_form.oninput = function(event) {
+calculate_dosage_volume_ml_mg();
+calculate_dosage_volume_ml_ug();
+dosage_form_ml_mg.oninput = function(event) {
   event.preventDefault();
-  calculate_savings_and_discounted_price();
+  calculate_dosage_volume_ml_mg();
 };
 
-fixed_off_form.oninput = function(event) {
+dosage_form_ml_ug.oninput = function(event) {
   event.preventDefault();
-  calculate_savings_on_fixed_price_off();
+  calculate_dosage_volume_ml_ug();
 };
 
 /*
-What is the 33% of 67 ?
-Let, savings= ?, discount_percent= 33, product_price= 67
-savings= (product_price * discount_percent)/100
+Dosage Volume = (Available Volume * RX Dose) / Available Dose
 */
-function calculate_savings_and_discounted_price() {
-  const form = document.forms.discount_form;
-  let discount_percent= form.elements.discount_percent.value;
-  let product_price = form.elements.product_price.value;
-  if (discount_percent== null || discount_percent== "") {
-    discount_percent= 0;
+function calculate_dosage_volume_ml_mg() {
+  const form = document.forms.dosage_form_ml_mg;
+  //inputs
+  let available_volume= form.elements.available_volume.value;
+  let available_dose = form.elements.available_dose.value;
+  let rx_dose= form.elements.rx_dose.value;
+  
+  if (available_volume== null || available_volume== "") {
+    available_volume= 5;
   }
-  if (product_price== null || product_price== "") {
-    product_price= 0;
+  if (available_dose== null || available_dose== "") {
+    available_dose= 250;
   }
-  let savings= (discount_percent* product_price) / 100;
-  form.elements.savings.value = savings.toFixed(2);
-
-  let discounted_price = product_price - savings;
-  form.elements.discounted_price.value = discounted_price;
-
-  if (savings< 0) {
+  if (rx_dose== null || rx_dose== "") {
+    rx_dose= 250;
+  }
+  
+  //outputs
+  let dosage_volume = (available_volume * rx_dose) / available_dose;
+  form.elements.dosage_volume.value = dosage_volume.toFixed(2);
+  /*if (savings< 0) {
     form.elements.savings.className = "result-negative"
   } else {
     form.elements.savings.className = "result"
-  }
+  }*/
 }
 
-function calculate_savings_on_fixed_price_off() {
-  const form = document.forms.fixed_off_form;
-  let fixed_off= form.elements.fixed_off.value;
-  let product_price = form.elements.product_price.value;
-  if (fixed_off== null || fixed_off== "") {
-    fixed_off= 0;
+/*
+Dosage Volume = (Available Volume * RX Dose) / Available Dose
+*/
+function calculate_dosage_volume_ml_ug() {
+  const form = document.forms.dosage_form_ml_ug;
+  //inputs
+  let available_volume= form.elements.available_volume.value;
+  let available_dose = form.elements.available_dose.value;
+  let rx_dose= (form.elements.rx_dose.value)/1000;
+  
+  if (available_volume== null || available_volume== "") {
+    available_volume= 5;
   }
-  if (product_price== null || product_price== "") {
-    product_price= 0;
+  if (available_dose== null || available_dose== "") {
+    available_dose= 250;
   }
-  let savings_percent= (fixed_off / product_price) * 100;
-  form.elements.savings_percent.value = savings_percent.toFixed(2)+" %";
-
-  let discounted_price = product_price - fixed_off;
-  form.elements.discounted_price.value = discounted_price;
-
-  if (savings_percent< 0) {
-    form.elements.savings_percent.className = "result-negative"
-  } else {
-    form.elements.savings_percent.className = "result"
+  if (rx_dose== null || rx_dose== "") {
+    rx_dose= 250;
   }
+  
+  //outputs
+  let dosage_volume = (available_volume * rx_dose) / available_dose;
+  form.elements.dosage_volume.value = dosage_volume.toFixed(2);
 }

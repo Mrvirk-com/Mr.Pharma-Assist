@@ -50,50 +50,45 @@
       <div style="overflow:auto">
         <div class="calculator_box">
           <div class="boxes">
-            <h1>Medication Dose Calculator</h1>
+            <h1>Calculator (ml/mg)</h1>
           </div>
           <div class="secondary_boxes">
-            <form id="discount_form">
+            <form id="dosage_form_ml_mg">
               <p>
-                Discount %
-                <input type="number" name="discount_percent" value="25">
-                Product Price
-                <input type="number" name="product_price" value="100">
-                Savings
-                <input type="text" name="savings" class="result">
-                Discounted Price
-                <input type="text" name="discounted_price" class="result">
-
+               Available Volume of Medication (ml)
+                <input type="number" name="available_volume" value="5">
+                Available Dose (mg)
+                <input type="number" name="available_dose" value="250">
+                Recommended (RX) Dose (mg)
+                <input type="number" name="rx_dose" value="250">
+                Dosage Volume (ml)
+                <input type="text" name="dosage_volume" class="result">
               </p>
-
             </form>
-
           </div>
-          <div class="boxes"><b>Example:</b> 10% off on 100$ = 10$ Savings</div>
+          <div class="boxes"><b>Formula:</b> Dosage Volume = (Available Volume * RX Dose) / Available Dose</div>
         </div>
           <div class="results_box">
             <div class="boxes">
-              <h1>Fixed Price Off</h1>
+              <h1>Calculator (ml/μg)</h1>
             </div>
             <div class="secondary_boxes">
 
-              <form id="fixed_off_form">
+              <form id="dosage_form_ml_ug">
                 <p>
-                  Fixed Off
-                  <input type="number" name="fixed_off" value="25">
-                  Product Price
-                  <input type="number" name="product_price" value="100">
-                  Discount
-                  <input type="text" name="savings_percent" class="result">
-                  Discounted Price
-                  <input type="text" name="discounted_price" class="result">
-
+                Available Volume of Medication (ml)
+                <input type="number" name="available_volume" value="5">
+                Available Dose (mg)
+                <input type="number" name="available_dose" value="250">
+                Recommended (RX) Dose (μg)
+                <input type="number" name="rx_dose" value="250000">
+                Dosage Volume (ml)
+                <input type="text" name="dosage_volume" class="result">
                 </p>
               </form>
             </div>
-            <div class="boxes"><b>Example:</b> 20$ off on 100 = 20% Savings</div>
+            <div class="boxes"><b>Formula:</b> Dosage Volume = (Available Volume * RX Dose) / Available Dose</div>
           </div>
-
       </div>
       <div style="padding:15px;text-align:center;">
         <!-- Percentage Calculator | 728x90 -->
@@ -134,7 +129,7 @@
 
   <div class="footer">
     <p>
-      A Product of <a href="https://mrvirk.com?utm_source=discount_calculator&utm_medium=footer">Mr. Virk Media </a> | Copyright © 2019-2020 | <a
+      A Product of <a href="https://mrvirk.com?utm_source=discount_calculator&utm_medium=footer">Mr. Virk Media </a> | © Copyright  | <a
         href="https://mrvirk.com/privacy-policy?utm_source=discount_calculator&utm_medium=footer">Privacy Policy</a>
       | Author: <a href="https://navjot.mrvirk.com/?utm_source=discount_calculator&utm_medium=footer">Navjot Virk</a> | Code: <a href="https://github.com/Mrvirk-com/Mr.-Percentage-Calculator/tree/master/discount_calculator">Github</a>
     </p>
