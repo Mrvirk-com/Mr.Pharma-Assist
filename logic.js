@@ -57,10 +57,10 @@ function calculate_dosage_volume_ml_ug() {
     available_dose= 250;
   }
   if (rx_dose== null || rx_dose== "") {
-    rx_dose= 250;
+    rx_dose= 250000;
   }
   
   //outputs
   let dosage_volume = (available_volume * rx_dose) / available_dose;
-  form.elements.dosage_volume.value = dosage_volume.toFixed(2);
+  form.elements.dosage_volume.value = dosage_volume.toFixed(3);
 }
